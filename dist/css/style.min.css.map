@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss","variables.scss"],"names":[],"mappings":"AAEA,GACI,YCHS,CDIT,iCAAA,CAAA,yBAAA","file":"style.min.css","sourcesContent":["@import 'variables';\r\n\r\nh2 {\r\n    color: $main_color;\r\n    transition: all 200ms ease;\r\n}","$main_color: orange"]}
