@@ -1,6 +1,5 @@
 @import 'variables';
 
-h2 {
-    color: $main_color;
-    transition: all 200ms ease;
+.navbar {
+    list-style-type: none;
 }
