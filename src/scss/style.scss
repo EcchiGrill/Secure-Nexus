@@ -28,7 +28,7 @@ button:hover {
 }
 
 body {
-    background-color: $bg-color;
+    background-color: $site-bg-color;
 }
 
 .navbar_wrapper {
@@ -119,21 +119,13 @@ body {
 
     .header-card {
         @include flex-template(column);
-
-        position: relative;
-        width: 234px;
-        height: 138px;
-        background-color: $card-bg-color;
-        border-radius: 8%;
-        text-align: center;
+        @include card-template(234px, 138px);
 
         div {
+            @include icon-template(100px, $icon-bg-color);
+
             position: absolute;
             top: -40px;
-            width: 100px;
-            height: 100px;
-            background-color: $figure-bg-color;
-            border-radius: 50%
         }
 
         span {
@@ -174,44 +166,16 @@ body {
             }
         }
         .section-info_icon-1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: rgba(65, 113, 196, 1);
-            border-radius: 50%;
-            align-content: center;
+            @include icon-template(60px, rgba(65, 113, 196, 1));
         }
         .section-info_icon-2 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: rgba(108, 204, 62, 1);
-            border-radius: 50%;
-            align-content: center;
+            @include icon-template(60px, rgba(108, 204, 62, 1));
         }
         .section-info_icon-3 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: rgba(229, 51, 61, 1);
-            border-radius: 50%;
-            align-content: center;
+            @include icon-template(60px, rgba(229, 51, 61, 1));
         }
         .section-info_icon-4 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: rgba(133, 85, 193, 1);
-            border-radius: 50%;
-            align-content: center;
+            @include icon-template(60px, rgba(133, 85, 193, 1));
         }
 
         img {
@@ -230,11 +194,10 @@ body {
     column-gap: 100px;
 
     .about-us_icon {
-        background: $figure-bg-color;
+        background: $icon-bg-color;
         height: 400px;
         width: 400px;
         border-radius: 8%;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
 
     .about-us_text {
@@ -263,3 +226,74 @@ body {
 
 
 }
+
+.services_wrapper {
+    @include flex-template(column);
+
+    margin-top: 100px;
+    
+    .services_text {
+        width: 800px;
+        text-align: center;
+        color: $primary-font-color;
+
+        h3 {
+            font-weight: 200;
+        }
+    }
+
+    .services-cards_container {
+        @include flex-template(row);
+
+        margin-top: 100px;
+        justify-content: center;
+        column-gap: 40px;
+
+            .services-card {
+                @include flex-template(column);
+                @include card-template(380px, 400px);
+
+                justify-content: center;
+
+                .services-card_icon {
+                    @include icon-template(180px, $icon-bg-color);
+
+                    position: absolute;
+                    top: -70px;
+                }
+
+                .services-card_text {
+                    
+                    h2, p {
+                        color: $primary-font-color;
+                    }
+
+                    p {
+                        font-weight: 200;
+                    }
+
+                }
+
+                a {
+                    @include text-template(18px, $heading-font-color);
+
+                    position: absolute;
+                    bottom: 40px;
+
+                } &:after {
+                    content: url("../img/arrow.png");
+                    width: 25px;
+                }
+            }
+        }
+    }
+
+    // .services-card_bg {
+    //     background: $behind-card-bg-color;
+    //     border-radius: 8%;
+    //     width: 380px;
+    //     height: 400px;
+    //     z-index: -1;
+    //     transform: rotate(45deg)
+    // }
+

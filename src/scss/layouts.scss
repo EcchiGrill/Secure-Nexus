@@ -10,3 +10,23 @@
     flex-direction: $direction;
     align-items: center
 }
+
+@mixin card-template($width, $height) {
+    position: relative;
+    width: $width;
+    height: $height;
+    background-color: $card-bg-color;
+    border-radius: 8%;
+    text-align: center;
+}
+
+@mixin icon-template($size, $bg-color) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
+    background: $bg-color;
+    border-radius: 50%;
+    align-content: center;
+}
