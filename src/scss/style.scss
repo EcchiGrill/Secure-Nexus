@@ -1,5 +1,186 @@
 @import 'variables';
+@import 'layouts';
+
+* {
+    font-family: $primary-font;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    @include text-template($primary-font-color, 15px);
+    background: $button-bg-color;
+    border: 0px;
+}
+
+button:hover {
+    background: none;
+    border-image: $button-bg-color 1;
+    border-width: 2px;
+    border-style: solid;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+.navbar_wrapper {
+    @include flex-template(row);
+    justify-content: space-evenly;
+
+    .logo-title {
+        @include text-template($heading-font-color, 26px)
+    }
+}
 
 .navbar {
+    @include flex-template(row);
+    
+    column-gap: 40px;
     list-style-type: none;
+
+    a {
+        @include text-template($primary-font-color, 14px);
+    }
+
+    button {
+        width: 177px;
+        height: 39px;
+        min-width: 143px;
+        min-height: 35px;
+    }
+}
+
+.header-content_wrapper {
+    @include flex-template(row);
+
+    justify-content: space-evenly;
+    margin-top: 40px;
+
+    .header-content {
+        @include flex-template(column);
+
+        width: 428px;
+        height: auto;
+        min-width: 400px;
+       
+        .header-content_text {
+
+            h1 {
+                color: $primary-font-color;
+            }
+
+            p {
+                color: $primary-font-color;
+                font-weight: 100;
+            }
+          
+        }
+
+        .header-content_buttons {
+            @include flex-template(row);
+
+            column-gap: 20px;
+            margin-top: 50px;
+            
+            button {
+                width: 180px;
+                height: 43px;
+                font-size: 18px;
+            }
+        } 
+    }
+
+        img {
+            width: 500px;
+            height: 440px;
+            min-width: 400px;
+            min-height: 380px;
+        }
+}
+
+.header-cards_wrapper {
+    @include flex-template(row);
+
+    justify-content: space-evenly;
+    margin-top: 40px;
+
+    .header-card {
+        @include flex-template(column);
+
+        width: 234px;
+        height: 128px;
+        background-color: $card-bg-color;
+        border-radius: 8%;
+        text-align: center;
+
+        div {
+            width: 70px;
+            height: 70px;
+            background-color: $figure-bg-color;
+            border-radius: 50%
+        }
+
+        span {
+            @include text-template($primary-font-color, 20px);
+        }
+
+    }
+}
+
+.header-info_wrapper {
+    @include flex-template(row);
+
+    background: $section-bg-color;
+    justify-content: space-evenly;
+    margin-top: 40px;
+
+    .header-info {
+        @include flex-template(row);
+
+        .header-info_text {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                color: $heading-font-color
+            }
+
+            span {
+                @include text-template($primary-font-color, 10px);
+            }
+        }
+        .header-info_icon-1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: rgba(65, 113, 196, 1);
+            border-radius: 50%;
+            align-content: center;
+        }
+        .header-info_icon-2 {
+            width: 70px;
+            height: 70px;
+            background: rgba(108, 204, 62, 1);
+        }
+        .header-info_icon-3 {
+            width: 70px;
+            height: 70px;
+            background: rgba(229, 51, 61, 1);
+        }
+        .header-info_icon-4 {
+            width: 70px;
+            height: 70px;
+            background: rgba(133, 85, 193, 1);
+        }
+
+        img {
+            height: 40px;
+            width: 40px;
+        }
+    }
 }

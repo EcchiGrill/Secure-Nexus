@@ -1,0 +1,12 @@
+@import 'variables';
+
+@mixin text-template($color, $size) {
+    color: $color;
+    font-size: $size;
+}
+
+@mixin flex-template($direction) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center
+}
