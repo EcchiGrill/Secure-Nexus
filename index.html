@@ -14,11 +14,11 @@
         <div class="navbar_wrapper">
             <a class="logo-title" href="./">Secure Nexus</a>
                 <ul class="navbar">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Resource</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#resource">Resource</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <button type="button">Get Protection Now</button>
                 </ul>
         </div>
@@ -37,9 +37,9 @@
             <img src="./src/img/header.png" alt="">
         </div>
         <div class="header-cards_wrapper">
-            <div class="header-card"><div></div><span>Comprehensive Security Audit</span></div>
-            <div class="header-card"><div></div><span>Real-Time Threat Monitoring</span></div>
-            <div class="header-card"><div></div><span>Cyber Defense Technologies</span></div>
+            <div class="header-card"><div class="header-card_icon"></div><span>Comprehensive Security Audit</span></div>
+            <div class="header-card"><div class="header-card_icon"></div><span>Real-Time Threat Monitoring</span></div>
+            <div class="header-card"><div class="header-card_icon"></div><span>Cyber Defense Technologies</span></div>
         </div>
     </div>
     <div class="section-info_wrapper">
@@ -49,7 +49,7 @@
         <div class="section-info"><div class="section-info_icon-4"><img src="./src/img/icon-4.png" alt=""></div><div class="section-info_text"><h2>100%</h2><span>Client Retention Rate</span></div></div>
     </div>
 
-    <div class="about-us_wrapper">
+    <div id="about-us" class="about-us_wrapper">
         <div class="about-us_icon"></div>
         <div class="about-us_text">
             <h1>Leading the Way in Cybersecurity Innovation</h1>
@@ -58,22 +58,99 @@
             <button type="button">Read More</button>
         </div>
     </div>
-    <div class="services_wrapper">
+    <div id="services" class="services_wrapper">
         <div class="services_text">
             <h1>Our Comprehensive Range of Cybersecurity Services</h1>
             <h3>From audits to full-scale security management, our services cover all aspects of cyber protection to keep your data safe and your business secure</h3>
         </div>
         <div class="services-cards_container">
+            <div class="services-cards_wrapper">
             <div class="services-card"><div class="services-card_icon"></div><div class="services-card_text"><h2>Risk Assessment</h2><p>Proactively identify vulnerabilities and threats before they become problems.</p></div><a href="#">Learn More</a></div>
             <div class="services-card"><div class="services-card_icon"></div><div class="services-card_text"><h2>Incident Response</h2><p>Rapid and effective action to mitigate the effects of security breaches.</p></div><a href="#">Learn More</a></div>
             <div class="services-card"><div class="services-card_icon"></div><div class="services-card_text"><h2>Compliance Solutions</h2><p>Ensure your business meets all regulatory and compliance requirements for cybersecurity.</p></div><a href="#">Learn More</a></div>
         </div>
+            <div class="services-bg-cards_wrapper">
+                <div class="services-bg-card"></div>
+                <div class="services-bg-card"></div>
+                <div class="services-bg-card"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="resource" class="resource_wrapper">
+        <div class="resource_text">
+            <h1>Explore Our Rich Library of Cybersecurity Resources</h1>
+            <p>Enhance your knowledge with our curated content featuring best practices, case studies, and the latest industry insights</p>
+        </div>
+        <div class="resource-info">
+            <div class="resource-info_icons">
+                <div class="resource-info_icon"></div>
+                <div class="resource-info_icon"></div>
+                <div class="resource-info_icon"></div>
+            </div>
+            <div class="resource-info_titles">
+                <h1>E-books</h1>
+                <h1>Webinars</h1>
+                <h1>Blog Articles</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="contact_wrapper">
+        <div class="contact_info">
+            <div class="contact-text">
+                <h1>Connect With Our Cybersecurity Experts Today</h1>
+                <h2>Ready to protect your business? Get in touch with us to discuss your cybersecurity needs and discover how our tailored solutions can bolster your defenses</h2>
+            </div>
+            <div class="contact-form">
+                <form action="post">
+                    <input type="text" placeholder="Name"><br>
+                    <input type="text" placeholder="Email"><br>
+                    <textarea name="" id="" placeholder="Message"></textarea><br>
+                    <button type="button">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <div class="contact-icon"></div>
     </div>
 
 </body>
 
 <footer> 
-
+<div class="footer-logo-title">Secure Nexus</div>
+<div class="footer-text">
+    <div class="footer-links">
+        <h1>Quick Links</h1>
+        <ul>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#resource">Resources</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="footer-legal">
+        <h1>Legal</h1>
+        <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Compliance</a></li>
+    </ul>
+    </div>
+    <div class="footer-info">
+        <h1>Company Information</h1>
+        <ul>
+            <li><img src="/src/img/phone.png"><span>+1-800-SECURE</span></li>
+            <li><img src="/src/img/email.png"><span>contact@guardiantech.com</span></li>
+            <li><img src="/src/img/adress.png"><span>123 Cyber Lane, Tech City, IN 46000, United States</span></li>
+        </ul>
+    </div>
+    <div class="footer-careers">
+        <h1>Careers</h1>
+        <a href="#">Join Our Team</a>
+        <p>Interested in making a difference in cybersecurity? Visit our <a href="#">Careers page</a> to see available opportunities and become a part of our innovative team</p>
+    </div>
+</div>
+<div class="copyright"><span>© 2024 Secure Nexus. All rights reserved.</span></div>
 </footer>
 
 </html>

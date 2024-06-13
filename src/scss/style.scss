@@ -1,5 +1,5 @@
 @import 'variables';
-@import 'layouts';
+@import 'templates';
 
 * {
     font-family: $primary-font;
@@ -7,10 +7,13 @@
     padding: 0px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 a {
     text-decoration: none;
 }
-
 
 button {
     @include text-template($primary-font-color, 15px);
@@ -36,28 +39,32 @@ body {
 
     justify-content: center;
     margin-top: 20px;
-    column-gap: 130px;
+    column-gap: 230px;
 
     .logo-title {
         @include text-template($heading-font-color, 26px)
     }
-}
 
-.navbar {
-    @include flex-template(row);
+    .navbar {
+        @include flex-template(row);
+        
+        column-gap: 35px;
     
-    column-gap: 35px;
-    list-style-type: none;
-
-    a {
-        @include text-template($primary-font-color, 14px);
-    }
-
-    button {
-        width: 177px;
-        height: 39px;
-        min-width: 143px;
-        min-height: 35px;
+        a {
+            @include text-template($primary-font-color, 14px);
+        }
+    
+        a:hover {
+            transition: 200ms ease;
+            color: $link-hover-color;
+        }
+    
+        button {
+            width: 177px;
+            height: 39px;
+            min-width: 143px;
+            min-height: 35px;
+        }
     }
 }
 
@@ -65,16 +72,24 @@ body {
     @include flex-template(row);
 
     justify-content: center;
-    column-gap: 70px;
+    column-gap: 150px;
     margin-top: 40px;
+
+    img {
+        width: 450px;
+        height: 440px;
+        min-height: 380px;
+    }
 
     .header-content {
         @include flex-template(column);
 
-        width: 428px;
+        max-width: 628px;
+        min-width: 400px;
         height: auto;
         min-width: 400px;
        
+
         .header-content_text {
 
             h1 {
@@ -102,26 +117,20 @@ body {
             }
         } 
     }
-
-        img {
-            width: 450px;
-            height: 440px;
-            min-height: 380px;
-        }
 }
 
 .header-cards_wrapper {
     @include flex-template(row);
 
     justify-content: center;
-    column-gap: 40px;
+    column-gap: 80px;
     margin-top: 40px;
 
     .header-card {
         @include flex-template(column);
-        @include card-template(234px, 138px);
+        @include card-template(244px, 138px);
 
-        div {
+        .header-card_icon {
             @include icon-template(100px, $icon-bg-color);
 
             position: absolute;
@@ -233,7 +242,8 @@ body {
     margin-top: 100px;
     
     .services_text {
-        width: 800px;
+        max-width: 800px;
+        min-width: 400px;
         text-align: center;
         color: $primary-font-color;
 
@@ -245,55 +255,390 @@ body {
     .services-cards_container {
         @include flex-template(row);
 
-        margin-top: 100px;
         justify-content: center;
-        column-gap: 40px;
+        position: relative;
+        align-items: center;
+        margin-top: 300px;
 
-            .services-card {
-                @include flex-template(column);
-                @include card-template(380px, 400px);
+        .services-bg-cards_wrapper {
+            @include flex-template(row);
+            
+            z-index: -1;
+            position: absolute;
+            column-gap: 50px;
 
-                justify-content: center;
+            .services-bg-card {
+                width: 340px;
+                height: 360px;
+                background: $card-behind-bg-color;
+                border-radius: 8%;
+                transform: rotate(-5deg);
+            }
+        }
 
-                .services-card_icon {
-                    @include icon-template(180px, $icon-bg-color);
-
-                    position: absolute;
-                    top: -70px;
-                }
-
-                .services-card_text {
+        .services-cards_wrapper {
+            @include flex-template(row);
+            
+            position: absolute;
+            justify-content: center;
+            column-gap: 50px;
+    
+                .services-card {
+                    @include flex-template(column);
+                    @include card-template(340px, 360px);
                     
-                    h2, p {
-                        color: $primary-font-color;
+                    justify-content: center;
+                    transform: rotate(5deg);
+                    
+
+                    .services-card_icon {
+                        @include icon-template(160px, $icon-bg-color);
+    
+                        margin-right: 25px;
+                        position: absolute;
+                        top: -70px;
                     }
-
-                    p {
-                        font-weight: 200;
+    
+                    .services-card_text {
+                        @include flex-template(column);
+                        
+                        transform: rotate(-5deg);
+                        row-gap: 12px;
+    
+                        h2, p {
+                            color: $primary-font-color;
+                        }
+    
+                        p {
+                            width: 300px;
+                            font-size: 18px;
+                            font-weight: 200;
+                        }
                     }
+    
+                    a {
+                        @include text-template($heading-font-color, 18px);
+                        @include flex-template(row);
 
+                        transform: rotate(-6deg);
+                        position: absolute;
+                        margin-left: 25px;
+                        column-gap: 14px;
+                        bottom: 60px;
+    
+                        &::after {
+                            content: "";
+                            background: url("../../src/img/arrow.png") 0 0 no-repeat;
+                            width: 18px;
+                            height: 14px;
+                         }
+                    }
                 }
+            }
+    }
+}   
 
-                a {
-                    @include text-template(18px, $heading-font-color);
+.resource_wrapper {
+    @include flex-template(row);
 
-                    position: absolute;
-                    bottom: 40px;
+    height: 300px;
+    margin-top: 350px;
+    background: $section-bg-color;
+    justify-content: center;
+    column-gap: 70px;
 
-                } &:after {
-                    content: url("../img/arrow.png");
-                    width: 25px;
-                }
+    .resource_text {
+        @include flex-template(column);
+
+        width: 450px;
+        row-gap: 10px;
+
+        h1, p {
+            color: $primary-font-color;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 200;
+        }
+    }
+
+    .resource-info {
+        @include flex-template(column);
+        
+        justify-content: center;
+        row-gap: 45px;
+
+        .resource-info_icons {
+            @include flex-template(row);
+
+            column-gap: 90px;
+
+            .resource-info_icon {
+                @include icon-template(120px, $icon-bg-color)
+            }
+        }
+
+        .resource-info_titles {
+            @include flex-template(row);
+
+            column-gap: 60px;
+            margin-left: 50px;
+
+            h1 {
+                color: $primary-font-color;
+            }
+        }
+    }
+}
+
+.contact_wrapper {
+    @include flex-template(row);
+
+    justify-content: center;
+    column-gap: 250px;
+    margin-top: 100px;
+
+    .contact_info {
+        @include flex-template(column);
+        
+        align-items: flex-start;
+        width: 600px;
+        row-gap: 40px;
+
+        .contact-text {
+            @include flex-template(column);
+
+            row-gap: 10px;
+
+            h1, h2 {
+                color: $primary-font-color;
+            }
+
+            h2 {
+                font-weight: 300;
+            }
+        }
+
+        .contact-form {
+            margin-left: 10px;
+
+            input {
+                width: 377px;
+                height: 62px;
+                background: $input-bg-color;
+                color: $primary-font-color;
+                margin-bottom: 15px;
+                border: 0px;
+                padding-left: 8px;
+                font-size: 15px;
+            }
+            textarea {
+                width: 377px;
+                height: 197px;
+                background: $input-bg-color;
+                color: $primary-font-color;
+                border: 0px;
+                padding-left: 8px;
+                padding-top: 6px;
+                font-size: 15px;
+            }
+
+            button {
+                width: 377px;
+                height: 42px;
+                margin-top: 30px;
             }
         }
     }
 
-    // .services-card_bg {
-    //     background: $behind-card-bg-color;
-    //     border-radius: 8%;
-    //     width: 380px;
-    //     height: 400px;
-    //     z-index: -1;
-    //     transform: rotate(45deg)
-    // }
+    .contact-icon {
+        @include icon-template(300px, $icon-bg-color)
+    }
+}
 
+footer {
+    @include flex-template(column);
+
+    background: $section-bg-color;
+    margin-top: 150px;
+    row-gap: 40px;
+
+    .footer-logo-title {
+        @include text-template($heading-font-color, 38px);
+
+        margin-right: 30em;
+        margin-top: 30px;
+    }
+
+    .footer-text {
+        @include flex-template(row);
+        
+        justify-content: center;
+        column-gap: 100px;
+
+        h1, li, a, p, span {
+            color: $primary-font-color;
+        }
+
+        ul {
+            margin-top: 50px;
+        }
+
+        li, p {
+            margin-top: 25px;
+       }
+
+       .footer-links {
+
+        a:hover {
+            transition: 200ms ease;
+            color: $link-hover-color;
+        }
+    
+       }
+        .footer-legal {
+            margin-bottom: 48px;
+
+            a:hover {
+                transition: 200ms ease;
+                color: $link-hover-color;
+            }
+        }
+
+        .footer-info {
+            margin-bottom: 48px;
+
+            li {
+               @include flex-template(row);
+                
+               column-gap: 20px;
+            }
+
+        
+        }
+
+        .footer-careers {
+            max-width: 350px;
+            margin-bottom: 48px;
+
+            h1 {
+                margin-bottom: 28px;
+            }
+
+            a:hover {
+                transition: 200ms ease;
+                color: $link-hover-color;
+            }
+        }
+    }
+
+    .copyright {
+        color: $primary-font-color;
+        margin-bottom: 30px;
+        margin-top: 100px;
+    }
+}
+
+//Adaptation
+@media (max-width: 990px)  {
+    .navbar_wrapper {
+        @include flex-template(column);
+
+       
+        ul {
+            margin-top: 20px;
+
+            li {
+                display: none;
+            }
+        }
+     
+    }
+
+    .header-content_wrapper {
+        @include flex-template(column);
+
+        position: relative;
+
+        .header-content {
+
+            .header-content_buttons {
+                flex-direction: column;
+                row-gap: 30px;
+                position: absolute;
+                bottom: -130px;
+            }
+        }
+
+        img {
+            margin-top: 30px
+        }
+    }
+
+    .header-cards_wrapper {
+        @include flex-template(column);
+
+        margin-top: 14em;
+        row-gap: 50px;
+    }
+
+    .section-info_wrapper {
+        @include flex-template(column);
+        
+        height: 430px;
+        margin-top: 80px;
+        row-gap: 50px;
+
+        .section-info_icon-2 {
+            margin-left: -22px
+        }
+    }
+    
+    .services_wrapper {
+
+        .services-cards_container {
+
+            margin-top: 48em;
+
+            .services-cards_wrapper {
+                @include flex-template(column);
+                
+                row-gap: 80px;
+            }
+
+            .services-bg-cards_wrapper {
+                @include flex-template(column);
+
+                row-gap: 80px;
+            }
+
+        }
+
+    }
+
+    .resource_wrapper {
+        @include flex-template(column);
+
+        margin-top: 70em;
+
+        .resource-info {
+
+            .resource-info_icons {
+                @include flex-template(column)
+            }
+
+            .resource-info_titles {
+                @include flex-template(column)
+            }
+        }
+    }
+
+    footer {
+
+        .footer-text {
+            @include flex-template(column)
+        }
+    }
+   
+}
