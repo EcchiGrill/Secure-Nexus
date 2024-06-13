@@ -41,7 +41,6 @@ gulp.task('browser-sync', function() {
 
 gulp.task('image', function () {
         return gulp.src(imgSRC)
-        .pipe(plumber())
 		.pipe(imagemin({}))
         .pipe(gulp.dest(imgDIST));
 });
