@@ -37,9 +37,14 @@ body {
 .navbar_wrapper {
     @include flex-template(row);
 
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: $site-bg-color;
     justify-content: center;
     margin-top: 20px;
-    column-gap: 230px;
+    column-gap: 420px;
+    height: 70px;
 
     .logo-title {
         @include text-template($heading-font-color, 26px)
@@ -71,14 +76,30 @@ body {
 .header-content_wrapper {
     @include flex-template(row);
 
+    padding: 0px 5px 0px 5px;
     justify-content: center;
     column-gap: 150px;
     margin-top: 40px;
 
     img {
-        width: 450px;
-        height: 440px;
+        max-width: 450px;
+        min-width: 280px;
+        max-height: 440px;
         min-height: 380px;
+    }
+
+    .header-content-mobile_buttons {
+        @include flex-template(column);
+
+        display: none;
+        column-gap: 40px;
+        margin-top: 40px;
+        
+        button {
+            width: 292px;
+            height: 73px;
+            font-size: 24px;
+        }
     }
 
     .header-content {
@@ -94,12 +115,14 @@ body {
 
             h1 {
                 color: $primary-font-color;
+                font-size: 48px;
             }
 
             p {
                 color: $primary-font-color;
                 font-weight: 100;
-                margin-top: 10px
+                margin-top: 10px;
+                font-size: 18px
             }
           
         }
@@ -107,15 +130,16 @@ body {
         .header-content_buttons {
             @include flex-template(row);
 
-            column-gap: 20px;
+            column-gap: 40px;
             margin-top: 40px;
             
             button {
-                width: 180px;
-                height: 43px;
-                font-size: 18px;
+                width: 292px;
+                height: 73px;
+                font-size: 24px;
             }
         } 
+
     }
 }
 
@@ -124,24 +148,24 @@ body {
 
     justify-content: center;
     column-gap: 80px;
-    margin-top: 40px;
+    margin-top: 70px;
 
     .header-card {
         @include flex-template(column);
-        @include card-template(244px, 138px);
+        @include card-template(274px, 178px);
 
         .header-card_icon {
-            @include icon-template(100px, $icon-bg-color);
+            @include icon-template(120px, $icon-bg-color);
 
             position: absolute;
             top: -40px;
         }
 
-        span {
+        h2 {
             @include text-template($primary-font-color, 20px);
 
             position: absolute;
-            bottom: 8px
+            bottom: 28px
         }
 
     }
@@ -154,7 +178,7 @@ body {
     justify-content: center;
     column-gap: 50px;
     margin-top: 40px;
-    height: 105px;
+    height: 155px;
 
     .section-info {
         @include flex-template(row);
@@ -166,7 +190,7 @@ body {
             flex-direction: column;
             row-gap: 2px;
 
-            h2 {
+            h1 {
                 color: $heading-font-color
             }
 
@@ -175,21 +199,21 @@ body {
             }
         }
         .section-info_icon-1 {
-            @include icon-template(60px, rgba(65, 113, 196, 1));
+            @include icon-template(80px, rgba(65, 113, 196, 1));
         }
         .section-info_icon-2 {
-            @include icon-template(60px, rgba(108, 204, 62, 1));
+            @include icon-template(80px, rgba(108, 204, 62, 1));
         }
         .section-info_icon-3 {
-            @include icon-template(60px, rgba(229, 51, 61, 1));
+            @include icon-template(80px, rgba(229, 51, 61, 1));
         }
         .section-info_icon-4 {
-            @include icon-template(60px, rgba(133, 85, 193, 1));
+            @include icon-template(80px, rgba(133, 85, 193, 1));
         }
 
         img {
-            height: 35px;
-            width: 35px;
+            height: 42px;
+            width: 42px;
         }
     }
 }
@@ -210,8 +234,17 @@ body {
     }
 
     .about-us_text {
-        width: 530px;
+        max-width: 630px;
+        min-width: 400px;
         color: $primary-font-color;
+
+        .about-us-mobile_icon {
+            display: none;
+            background: $icon-bg-color;
+            height: 400px;
+            width: 400px;
+            border-radius: 8%;
+        }
        
         h3 {
             margin-top: 5px;
@@ -219,7 +252,7 @@ body {
         }
 
         p {
-            font-size: 15px;
+            font-size: 18px;
             margin-top: 17px;
             font-weight: 100;
         }
@@ -350,7 +383,8 @@ body {
     .resource_text {
         @include flex-template(column);
 
-        width: 450px;
+        max-width: 450px;
+        min-width: 380px;
         row-gap: 10px;
 
         h1, p {
@@ -364,30 +398,19 @@ body {
     }
 
     .resource-info {
-        @include flex-template(column);
-        
-        justify-content: center;
-        row-gap: 45px;
+        display: grid;
+        grid: repeat(2, 1fr) / repeat(3, 170px);
+        align-items: center;
+        text-align: center;
 
-        .resource-info_icons {
-            @include flex-template(row);
+        .resource-info_icon {
+            @include icon-template(130px, $icon-bg-color);
 
-            column-gap: 90px;
-
-            .resource-info_icon {
-                @include icon-template(120px, $icon-bg-color)
-            }
+            margin-left: 15px
         }
 
-        .resource-info_titles {
-            @include flex-template(row);
-
-            column-gap: 60px;
-            margin-left: 50px;
-
-            h1 {
-                color: $primary-font-color;
-            }
+        h1 {
+            color: $primary-font-color;
         }
     }
 }
@@ -403,7 +426,8 @@ body {
         @include flex-template(column);
         
         align-items: flex-start;
-        width: 600px;
+        max-width: 600px;
+        min-width: 390px;
         row-gap: 40px;
 
         .contact-text {
@@ -458,86 +482,62 @@ body {
 }
 
 footer {
-    @include flex-template(column);
 
-    background: $section-bg-color;
-    margin-top: 150px;
-    row-gap: 40px;
+    .footer_container {
 
-    .footer-logo-title {
-        @include text-template($heading-font-color, 38px);
+        @include flex-template(column);
 
-        margin-right: 30em;
-        margin-top: 30px;
-    }
+        background: $section-bg-color;
+        margin-top: 150px;
 
-    .footer-text {
-        @include flex-template(row);
-        
-        justify-content: center;
-        column-gap: 100px;
+       .footer-logo-title {
+            @include text-template($heading-font-color, 38px);
 
-        h1, li, a, p, span {
-            color: $primary-font-color;
+            margin-top: 30px;
         }
 
-        ul {
-            margin-top: 50px;
-        }
+       .footer-info_wrapper {
 
-        li, p {
-            margin-top: 25px;
-       }
+        margin: auto;
 
-       .footer-links {
-
-        a:hover {
+        .footer-info_grid {
+            display: grid;
+            grid: repeat(2, 50px) / 250px 250px 500px 400px;
+            margin-top: 70px;
+    
+            h1, li, p, span, a {
+                color: $primary-font-color;
+            }
+    
+            ul {
+                margin-top: 20px;
+            }
+    
+            li, p {
+                margin-top: 25px;
+           }
+    
+           a:hover {
             transition: 200ms ease;
             color: $link-hover-color;
         }
-    
-       }
-        .footer-legal {
-            margin-bottom: 48px;
 
-            a:hover {
-                transition: 200ms ease;
-                color: $link-hover-color;
-            }
+        .footer-contact {
+            @include flex-template(row);
+            
+            column-gap: 10px;
         }
-
-        .footer-info {
-            margin-bottom: 48px;
-
-            li {
-               @include flex-template(row);
-                
-               column-gap: 20px;
-            }
-
-        
-        }
-
-        .footer-careers {
-            max-width: 350px;
-            margin-bottom: 48px;
-
-            h1 {
-                margin-bottom: 28px;
-            }
-
-            a:hover {
-                transition: 200ms ease;
-                color: $link-hover-color;
-            }
-        }
+            
     }
+}
 
     .copyright {
         color: $primary-font-color;
+        margin-top: 320px;
         margin-bottom: 30px;
-        margin-top: 100px;
+        text-align: center;
     }
+ }
 }
 
 //Adaptation
@@ -559,15 +559,16 @@ footer {
     .header-content_wrapper {
         @include flex-template(column);
 
-        position: relative;
+        text-align: center;
+
+        .header-content-mobile_buttons {
+            display: flex;
+            row-gap: 40px;
+        }
 
         .header-content {
-
             .header-content_buttons {
-                flex-direction: column;
-                row-gap: 30px;
-                position: absolute;
-                bottom: -130px;
+                display: none;
             }
         }
 
@@ -579,14 +580,14 @@ footer {
     .header-cards_wrapper {
         @include flex-template(column);
 
-        margin-top: 14em;
+        margin-top: 120px;
         row-gap: 50px;
     }
 
     .section-info_wrapper {
         @include flex-template(column);
         
-        height: 430px;
+        height: 530px;
         margin-top: 80px;
         row-gap: 50px;
 
@@ -594,8 +595,40 @@ footer {
             margin-left: -22px
         }
     }
+
+    .about-us_wrapper {
+        @include flex-template(column);
+
+        margin-top: 160px;
+
+        .about-us_icon {
+            display: none;
+        }
+
+        .about-us_text {
+            @include flex-template(column);
+
+            .about-us-mobile_icon {
+                display: block;
+                margin-top: 10px;
+            }
+            
+            text-align: center;
+            
+            button {
+                margin-top: 40px;
+            }
+
+            p {
+                margin-top: 20px;
+            }
+
+        }
+    }
     
     .services_wrapper {
+        
+        margin-top: 250px;
 
         .services-cards_container {
 
@@ -604,13 +637,13 @@ footer {
             .services-cards_wrapper {
                 @include flex-template(column);
                 
-                row-gap: 80px;
+                row-gap: 120px;
             }
 
             .services-bg-cards_wrapper {
                 @include flex-template(column);
 
-                row-gap: 80px;
+                row-gap: 120px;
             }
 
         }
@@ -620,24 +653,66 @@ footer {
     .resource_wrapper {
         @include flex-template(column);
 
-        margin-top: 70em;
+        margin-top: 50em;
+        row-gap: 30px;
+        height: 62em;
+        text-align: center;
+        position: relative;
 
         .resource-info {
 
             .resource-info_icons {
-                @include flex-template(column)
+                @include flex-template(column);
+
+                margin-top: 3em;
+                row-gap: 85px;
             }
 
             .resource-info_titles {
-                @include flex-template(column)
+                @include flex-template(column);
+
+                position: absolute;
+                row-gap: 155px;
+                bottom: 14px;
+                margin-right: 32px;
+                margin-bottom: 20px;
             }
+        }
+    }
+
+    .contact_wrapper {
+        @include flex-template(column);
+
+        text-align: center;
+        position: relative;
+
+        .contact_info {
+            @include flex-template(column);
+
+            .contact-form {
+                margin-top: 22em;
+            }
+        }
+
+        .contact-icon {
+            position: absolute;
+            bottom: 30em;
         }
     }
 
     footer {
 
-        .footer-text {
-            @include flex-template(column)
+        .footer_container {
+
+            .footer-info_wrapper{
+                text-align: center;
+
+                .footer-info_grid {
+                    grid: repeat(4, 150px) repeat(4, 300px) / 750px;
+                }
+
+            }
+            
         }
     }
    

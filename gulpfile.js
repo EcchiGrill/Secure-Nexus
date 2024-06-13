@@ -3,14 +3,16 @@ var rename = require( 'gulp-rename' );
 var sass = require( 'gulp-sass' )(require ('sass'));
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
-var browserSync = require('browser-sync').create()
+var browserSync = require('browser-sync').create();
+var plumber = require('gulp-plumber');
+var imagemin = require('gulp-imagemin');
 
 var styleSRC = 'src/scss/style.scss';
 var styleDIST = './dist/css/';
 var styleWatch = 'src/scss/*.scss';
 var htmlWatch = '*.html';
-// var imgSRC ='src/img/*'
-// var imgDIST ='dist/img/'
+var imgSRC ='src/img/*'
+var imgDIST ='dist/img/'
 
 gulp.task('style', function() {
     return gulp.src(styleSRC)
@@ -35,6 +37,13 @@ gulp.task('browser-sync', function() {
         chrome: '-browser "chrome.exe"',
         notify: false
     })
+});
+
+gulp.task('image', function () {
+        return gulp.src(imgSRC)
+        .pipe(plumber())
+		.pipe(imagemin({}))
+        .pipe(gulp.dest(imgDIST));
 });
 
 gulp.task('watch', gulp.parallel('browser-sync', function(done) {
