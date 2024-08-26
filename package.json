@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp"
   },
   "keywords": [
     "task"
@@ -20,8 +22,5 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "sass": "^1.77.4"
-  },
-  "dependencies": {
-    "gulp-plumber": "^1.2.1"
   }
 }
